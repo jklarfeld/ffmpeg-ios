@@ -678,7 +678,7 @@
 				INFOPLIST_FILE = "ffmpeg/ffmpeg-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jklarfeld/Developer/ffmpeg/ffmpeg/fat-ffmpeg/lib",
+					"$(SRCROOT)/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -701,7 +701,7 @@
 				INFOPLIST_FILE = "ffmpeg/ffmpeg-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/jklarfeld/Developer/ffmpeg/ffmpeg/fat-ffmpeg/lib",
+					"$(SRCROOT)/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
