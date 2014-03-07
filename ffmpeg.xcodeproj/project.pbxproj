@@ -152,6 +152,7 @@
 		25455AA818C973FF00D61148 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		25455AB018C974EE00D61148 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		25455AB218C974F800D61148 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		25B00D6818C996C9001A27AA /* FFmpegWrapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FFmpegWrapper.xcodeproj; path = ../FFmpegWrapper/FFmpegWrapper.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +225,7 @@
 		25455A1918C973E100D61148 /* ffmpeg */ = {
 			isa = PBXGroup;
 			children = (
+				25B00D6818C996C9001A27AA /* FFmpegWrapper.xcodeproj */,
 				25455A4B18C973FF00D61148 /* ffmpeg */,
 				25455A2218C973E100D61148 /* AppDelegate.h */,
 				25455A2318C973E100D61148 /* AppDelegate.m */,
