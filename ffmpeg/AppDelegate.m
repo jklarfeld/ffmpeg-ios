@@ -52,6 +52,10 @@
 	NSLog(@"url: %@", url);
 	NSLog(@"sourceApplication: %@", sourceApplication);
 	
+	_videoURL = url;
+	
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"com.ffmpeg.videoURLArrived" object:self];
+	
 	return YES;
 }
 

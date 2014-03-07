@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -14,16 +15,28 @@
 
 @implementation ViewController
 
+@synthesize videoLabel = _videoLabel;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(urlArrived)
+												 name:@"com.ffmpeg.videoURLArrived"
+											   object:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)urlArrived
+{
+	AppDelegate *appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	_videoLabel.text = [@"Video: " stringByAppendingString:[appDel.videoURL.pathComponents lastObject]];
 }
 
 @end
