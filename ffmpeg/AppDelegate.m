@@ -7,12 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#include "avformat.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    av_register_all();
+    
     return YES;
 }
 							
