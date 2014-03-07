@@ -11,4 +11,5 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *videoLabel;
 
+- (IBAction)openFromFileSystem:(UIButton *)sender;
 @end

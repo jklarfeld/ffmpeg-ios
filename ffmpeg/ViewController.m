@@ -9,7 +9,11 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 
+#define simulatorURL @"file:///Users/jklarfeld/Dropbox/Videos/Tuerckd_Ep.6%20%5B720p%5D.mp4"
+
 @interface ViewController ()
+
+@property (strong, nonatomic) AppDelegate *appDel;
 
 @end
 
@@ -25,6 +29,7 @@
 											 selector:@selector(urlArrived)
 												 name:@"com.ffmpeg.videoURLArrived"
 											   object:nil];
+    _appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,8 +40,13 @@
 
 - (void)urlArrived
 {
-	AppDelegate *appDel = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-	_videoLabel.text = [@"Video: " stringByAppendingString:[appDel.videoURL.pathComponents lastObject]];
+	_videoLabel.text = [@"Video: " stringByAppendingString:[_appDel.videoURL.pathComponents lastObject]];
 }
 
+- (IBAction)openFromFileSystem:(UIButton *)sender
+{
+    NSURL *vidURL = [NSURL URLWithString:simulatorURL];
+    _appDel.videoURL = vidURL;
+    _videoLabel.text = [@"Video: " stringByAppendingString:[_appDel.videoURL.pathComponents lastObject]];
+}
 @end
