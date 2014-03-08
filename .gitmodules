@@ -1,3 +1,6 @@
 [submodule "FFmpegWrapper"]
 	path = FFmpegWrapper
 	url = https://github.com/OpenWatch/FFmpegWrapper.git
+[submodule "ffmpegWrapper"]
+	path = ffmpegWrapper
+	url = /Users/jklarfeld/Dropbox/Developer/git/ffmpegWrapper.git

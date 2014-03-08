@@ -42,6 +42,20 @@
 			remoteGlobalIDString = 25455A0F18C973E100D61148;
 			remoteInfo = ffmpeg;
 		};
+		25ED5EC718CBBE130038DE24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25B00D6818C996C9001A27AA /* FFmpegWrapper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D95F88D617E8C259000ADE35;
+			remoteInfo = FFmpegWrapper;
+		};
+		25ED5EC918CBBE130038DE24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 25B00D6818C996C9001A27AA /* FFmpegWrapper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D95F88E617E8C259000ADE35;
+			remoteInfo = FFmpegWrapperTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -432,6 +446,15 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		25ED5EC318CBBE130038DE24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				25ED5EC818CBBE130038DE24 /* libFFmpegWrapper.a */,
+				25ED5ECA18CBBE130038DE24 /* FFmpegWrapperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -495,6 +518,12 @@
 			mainGroup = 25455A0718C973E100D61148;
 			productRefGroup = 25455A1118C973E100D61148 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 25ED5EC318CBBE130038DE24 /* Products */;
+					ProjectRef = 25B00D6818C996C9001A27AA /* FFmpegWrapper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				25455A0F18C973E100D61148 /* ffmpeg */,
@@ -502,6 +531,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		25ED5EC818CBBE130038DE24 /* libFFmpegWrapper.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFFmpegWrapper.a;
+			remoteRef = 25ED5EC718CBBE130038DE24 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		25ED5ECA18CBBE130038DE24 /* FFmpegWrapperTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FFmpegWrapperTests.xctest;
+			remoteRef = 25ED5EC918CBBE130038DE24 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		25455A0E18C973E100D61148 /* Resources */ = {
