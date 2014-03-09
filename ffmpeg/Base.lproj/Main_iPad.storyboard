@@ -37,18 +37,36 @@
                                     <action selector="openFromFileSystem:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zZI-Wj-w34"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXy-Lr-100">
+                                <rect key="frame" x="319" y="541" width="130" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="6Ha-VR-tLO"/>
+                                    <constraint firstAttribute="height" constant="30" id="yCD-gm-YyN"/>
+                                </constraints>
+                                <state key="normal" title="Convert">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="Waiting For Video"/>
+                                <connections>
+                                    <action selector="convertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DBP-X9-TMU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="8gD-tc-3Ld" secondAttribute="centerX" id="G5d-1U-QCA"/>
+                            <constraint firstAttribute="centerX" secondItem="qXy-Lr-100" secondAttribute="centerX" id="OvG-au-sWg"/>
                             <constraint firstItem="Ush-nh-6TB" firstAttribute="top" secondItem="KAn-11-7Xo" secondAttribute="bottom" constant="406" id="Wuy-1d-UVg"/>
                             <constraint firstItem="8gD-tc-3Ld" firstAttribute="top" secondItem="Ush-nh-6TB" secondAttribute="bottom" constant="45" id="cEr-C6-G6D"/>
                             <constraint firstAttribute="centerY" secondItem="8gD-tc-3Ld" secondAttribute="centerY" constant="0.5" id="jZb-yu-kih"/>
                             <constraint firstAttribute="centerY" secondItem="Ush-nh-6TB" secondAttribute="centerY" constant="71" id="k0g-cL-xx4"/>
+                            <constraint firstAttribute="centerY" secondItem="qXy-Lr-100" secondAttribute="centerY" constant="-44" id="kLF-0o-BwE"/>
                             <constraint firstAttribute="centerX" secondItem="Ush-nh-6TB" secondAttribute="centerX" id="t4z-4l-wJh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="convertOutlet" destination="qXy-Lr-100" id="JBq-4D-kgC"/>
                         <outlet property="videoLabel" destination="8gD-tc-3Ld" id="jbl-wS-OeR"/>
                     </connections>
                 </viewController>

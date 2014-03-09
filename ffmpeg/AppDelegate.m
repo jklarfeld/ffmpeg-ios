@@ -8,15 +8,40 @@
 
 #import "AppDelegate.h"
 #include "avformat.h"
+#include "avcodec.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+	av_register_all();
+	avcodec_register_all();
+	
+	AVCodec *h264 = avcodec_find_encoder(CODEC_ID_H264);
     
-    av_register_all();
+	NSLog(@"h264: %s", h264->long_name);
+	
+	AVCodec * codec = NULL;
+	while((codec = av_codec_next(codec)))
+	{
+		//NSLog(@"%s: %s", codec->name, codec->long_name);
+	}
     
+	AVCodec *other = avcodec_find_encoder_by_name("libx264");
+    
+	NSLog(@"h264: %s", other->long_name);
+	
+	AVBitStreamFilterContext *temp = av_bitstream_filter_init("h264_mp4toannexb");
+	
+	if (temp)
+	{
+		NSLog(@"temp was init!");
+	}
+	else
+	{
+		NSLog(@"temp wasn't init");
+	}
+	
     return YES;
 }
 							
@@ -57,6 +82,13 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"com.ffmpeg.videoURLArrived" object:self];
 	
 	return YES;
+}
+
+- (NSString *) applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
 }
 
 @end

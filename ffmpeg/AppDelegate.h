@@ -14,4 +14,6 @@
 
 @property (strong, atomic) NSURL *videoURL;
 
+- (NSString *) applicationDocumentsDirectory;
+
 @end
