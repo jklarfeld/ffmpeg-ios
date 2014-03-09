@@ -11,6 +11,8 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *videoLabel;
 @property (weak, nonatomic) IBOutlet UIButton *convertOutlet;
+@property (weak, nonatomic) IBOutlet UIProgressView *progress;
+@property (weak, nonatomic) IBOutlet UILabel *verboseLabel;
 
 - (IBAction)openFromFileSystem:(UIButton *)sender;
 

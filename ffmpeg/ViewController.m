@@ -36,9 +36,7 @@
 	_encoder = [[FFmpegWrapper alloc] init];
 	[_convertOutlet setEnabled:NO];
 	
-	AVCodec *codec = avcodec_find_encoder_by_name("libx264");
-	NSLog(@"find encoder by name: %s", codec->long_name);
-	
+	[_progress setProgress:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,17 +75,33 @@
 	
 	FFmpegWrapperProgressBlock progBlock = ^(NSUInteger bytesRead, uint64_t totalBytesRead, uint64_t totalBytesExpectedToRead)
 	{
-		NSLog(@"progBlock:");
-		NSLog(@"Total Bytes Read: %llu", totalBytesRead);
-		NSLog(@"Bytes Read: %lu", (unsigned long)bytesRead);
-		NSLog(@"Total Bytes Expected: %llu", totalBytesExpectedToRead);
+		double progress = 0;
+		progress = totalBytesRead;
+		progress = progress/totalBytesExpectedToRead;
+		
+		[_progress setProgress:progress animated:YES];
+		
+		float mbRead = totalBytesRead/1000/1000;
+		float mbTotal = totalBytesExpectedToRead/1000/1000;
+		
+		NSString *status = [NSString stringWithFormat:@"%.1fmb of %.1fmb read.", mbRead, mbTotal];
+		
+		[_verboseLabel setText:status];
 	};
 	
 	FFmpegWrapperCompletionBlock completeBlock = ^(BOOL success, NSError *error)
 	{
 		if (success)
 		{
-			NSLog(@"Success!");
+			[_progress setProgressTintColor:[UIColor greenColor]];
+			[_verboseLabel setText:[_verboseLabel.text stringByAppendingString:@"..Success!"]];
+			NSFileManager *fileMan = [NSFileManager defaultManager];
+			NSError *deleteError;
+			[fileMan removeItemAtURL:_appDel.videoURL error:&deleteError];
+			if (deleteError)
+			{
+				[_verboseLabel setText:[NSString stringWithFormat:@"Error cleaning up: %@", deleteError]];
+			}
 		}
 		else
 		{
@@ -96,8 +110,8 @@
 		
 	};
 	
-	NSDictionary *opts = [[NSDictionary alloc] initWithObjects:@[@"mp4", @"ts"]
-													   forKeys:@[kFFmpegInputFormatKey, kFFmpegOutputFormatKey]];
+	NSDictionary *opts = [[NSDictionary alloc] initWithObjects:@[@"mp4"]
+													   forKeys:@[kFFmpegInputFormatKey]];
 	
 	[_encoder convertInputPath:input.path
 					outputPath:outputPath

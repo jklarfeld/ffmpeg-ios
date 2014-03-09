@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting For video to arrive..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gD-tc-3Ld">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting For video to arrive..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gD-tc-3Ld">
                                 <rect key="frame" x="20" y="501" width="728" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXy-Lr-100">
-                                <rect key="frame" x="319" y="541" width="130" height="30"/>
+                                <rect key="frame" x="319" y="579" width="130" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="6Ha-VR-tLO"/>
@@ -52,21 +52,45 @@
                                     <action selector="convertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DBP-X9-TMU"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="r2B-Mg-FNA">
+                                <rect key="frame" x="140" y="641" width="489" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="489" id="iFQ-ib-oIp"/>
+                                </constraints>
+                            </progressView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x of x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-1W-gf5">
+                                <rect key="frame" x="234" y="685" width="313" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="313" id="RPl-Zh-Nau"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="r2B-Mg-FNA" firstAttribute="centerX" secondItem="hRi-1W-gf5" secondAttribute="centerX" constant="-6" id="0ap-9i-0Ed"/>
                             <constraint firstAttribute="centerX" secondItem="8gD-tc-3Ld" secondAttribute="centerX" id="G5d-1U-QCA"/>
+                            <constraint firstAttribute="centerY" secondItem="hRi-1W-gf5" secondAttribute="centerY" constant="-183.5" id="KU5-3L-lr6"/>
                             <constraint firstAttribute="centerX" secondItem="qXy-Lr-100" secondAttribute="centerX" id="OvG-au-sWg"/>
                             <constraint firstItem="Ush-nh-6TB" firstAttribute="top" secondItem="KAn-11-7Xo" secondAttribute="bottom" constant="406" id="Wuy-1d-UVg"/>
+                            <constraint firstAttribute="centerX" secondItem="hRi-1W-gf5" secondAttribute="centerX" constant="-6.5" id="aDA-YA-61W"/>
                             <constraint firstItem="8gD-tc-3Ld" firstAttribute="top" secondItem="Ush-nh-6TB" secondAttribute="bottom" constant="45" id="cEr-C6-G6D"/>
+                            <constraint firstItem="r2B-Mg-FNA" firstAttribute="centerY" secondItem="qXy-Lr-100" secondAttribute="centerY" constant="48" id="dWG-GJ-z2T"/>
                             <constraint firstAttribute="centerY" secondItem="8gD-tc-3Ld" secondAttribute="centerY" constant="0.5" id="jZb-yu-kih"/>
                             <constraint firstAttribute="centerY" secondItem="Ush-nh-6TB" secondAttribute="centerY" constant="71" id="k0g-cL-xx4"/>
-                            <constraint firstAttribute="centerY" secondItem="qXy-Lr-100" secondAttribute="centerY" constant="-44" id="kLF-0o-BwE"/>
+                            <constraint firstAttribute="centerY" secondItem="qXy-Lr-100" secondAttribute="centerY" constant="-82" id="kLF-0o-BwE"/>
                             <constraint firstAttribute="centerX" secondItem="Ush-nh-6TB" secondAttribute="centerX" id="t4z-4l-wJh"/>
+                            <constraint firstItem="qXy-Lr-100" firstAttribute="top" secondItem="KAn-11-7Xo" secondAttribute="bottom" constant="559" id="zgW-W8-C6n"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="convertOutlet" destination="qXy-Lr-100" id="JBq-4D-kgC"/>
+                        <outlet property="progress" destination="r2B-Mg-FNA" id="rgy-lD-TxM"/>
+                        <outlet property="verboseLabel" destination="hRi-1W-gf5" id="Qz3-7L-Oak"/>
                         <outlet property="videoLabel" destination="8gD-tc-3Ld" id="jbl-wS-OeR"/>
                     </connections>
                 </viewController>
